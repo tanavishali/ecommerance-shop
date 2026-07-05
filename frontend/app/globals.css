@@ -1,0 +1,259 @@
+@import "tailwindcss";
+
+/* ─── Dark-mode variant (Tailwind v4 CSS-first) ──────────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Light Theme CSS vars (used only for legacy/custom fallbacks) ────────── */
+:root {
+  --color-primary:       #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-success:       #16A34A;
+  --color-warning:       #D97706;
+  --color-danger:        #DC2626;
+  --color-info:          #0891B2;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body base — explicit classes do the heavy lifting, these are fallbacks */
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Light mode gradient background ────────────────────────────────────────
+   Soft violet → sky → emerald pastel sweep, fixed so it spans the whole
+   viewport regardless of page length. Sections are transparent in light mode
+   so this glows through everywhere. */
+body {
+  /* Violet → indigo → blue → purple sweep, shared across every page */
+  background: linear-gradient(135deg, #DDD6FE 0%, #C7D2FE 32%, #BFDBFE 60%, #E9D5FF 100%);
+  background-attachment: fixed;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar          { width: 6px; height: 6px; }
+::-webkit-scrollbar-track    { background: transparent; }
+::-webkit-scrollbar-thumb    { background: #D4D4D8; border-radius: 3px; }
+.dark ::-webkit-scrollbar-thumb { background: #3F3F46; }
+::-webkit-scrollbar-thumb:hover { background: #A1A1AA; }
+
+/* ─── Focus ring ─────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #7C3AED;
+  outline-offset: 2px;
+}
+
+/* ─── Selection ──────────────────────────────────────────────────────────── */
+::selection        { background: #EDE9FE; color: #09090B; }
+.dark ::selection  { background: #27272A; color: #FAFAFA; }
+
+/* ─── Native <select> dropdown options ───────────────────────────────────────
+   The open options list is OS-rendered and ignores the control's Tailwind
+   colors, so a light control text on the default white popup becomes unreadable.
+   Pin readable colors for both themes. */
+option {
+  color: #18181B;            /* zinc-900 */
+  background-color: #FFFFFF;
+}
+.dark option {
+  color: #FAFAFA;            /* zinc-50 */
+  background-color: #18181B; /* matches the elevated slate surface */
+}
+
+/* ─── Charcoal Slate dark background ────────────────────────────────────────
+   Painted once on the body and held fixed, so the whole app shares a single
+   continuous gradient. Page/section surfaces are transparent in dark mode so
+   this shows through; navbar, footer, sidebar and sale banners stay solid. */
+.dark body {
+  /* Ultra dark neutral blue-gray base with faint blue-grey glows. */
+  background:
+    radial-gradient(900px 520px at 12% -8%,  rgba(39, 39, 42, 0.15), transparent 60%),
+    radial-gradient(800px 500px at 100% 102%, rgba(63, 63, 70, 0.12), transparent 55%),
+    linear-gradient(160deg, #0E0E16 0%, #13131F 58%, #0B0B14 100%);
+  background-attachment: fixed;
+}
+/* Reusable dark surface for blocks that need their own fill */
+.bg-aurora {
+  background: #0E0E16;
+}
+
+/* ─── Glass card surface ─────────────────────────────────────────────────────
+   `surface-glass` owns the card background in BOTH themes so nothing competes:
+   white in light, a deep translucent navy + blur in dark so the Aurora glows
+   through subtly while white text stays crisply readable. Keep the existing
+   `border border-zinc-200` on the card for the light edge. */
+.surface-glass {
+  background-color: #ffffff;
+}
+.dark .surface-glass {
+  background-color: rgba(24, 24, 27, 0.75); /* elevated slate above the base */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+/* ─── Starfield (dark only) ──────────────────────────────────────────────────
+   Two fixed, tiled star layers behind all content. They drift at different
+   speeds (parallax) and softly twinkle out of phase. z-index:-1 keeps them
+   above the body's Aurora gradient but below every page surface. */
+.dark body::before,
+.dark body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  display: none; /* Temporarily hidden */
+}
+/* Layer 1 — small, dense, faster drift */
+.dark body::before {
+  background-image:
+    radial-gradient(1px 1px at 25px 35px,   #ffffff,            transparent),
+    radial-gradient(1px 1px at 90px 140px,  rgba(255,255,255,.7), transparent),
+    radial-gradient(1px 1px at 200px 80px,  #ffffff,            transparent),
+    radial-gradient(1px 1px at 260px 220px, rgba(255,255,255,.6), transparent),
+    radial-gradient(1px 1px at 140px 260px, #ffffff,            transparent),
+    radial-gradient(1.5px 1.5px at 50px 200px, rgba(255,255,255,.85), transparent),
+    radial-gradient(1px 1px at 170px 30px,  rgba(255,255,255,.5), transparent),
+    radial-gradient(1px 1px at 290px 110px, #ffffff,            transparent);
+  background-size: 300px 300px;
+  background-repeat: repeat;
+  animation: star-drift-1 90s linear infinite, twinkle 7s ease-in-out infinite;
+}
+/* Layer 2 — larger, sparser, slower drift, offset twinkle */
+.dark body::after {
+  background-image:
+    radial-gradient(1.5px 1.5px at 60px 80px,   #ffffff,            transparent),
+    radial-gradient(2px 2px at 320px 200px,     rgba(255,255,255,.9), transparent),
+    radial-gradient(1.5px 1.5px at 180px 340px, #ffffff,            transparent),
+    radial-gradient(1px 1px at 240px 40px,      rgba(255,255,255,.7), transparent),
+    radial-gradient(1.5px 1.5px at 380px 300px, #ffffff,            transparent),
+    radial-gradient(2px 2px at 100px 260px,     rgba(255,255,255,.85), transparent);
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  animation: star-drift-2 140s linear infinite, twinkle 9s ease-in-out infinite 1.5s;
+}
+@keyframes star-drift-1 {
+  from { background-position: 0 0;     }
+  to   { background-position: 0 -300px; }
+}
+@keyframes star-drift-2 {
+  from { background-position: 0 0;     }
+  to   { background-position: 0 -400px; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 1;    }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dark body::before,
+  .dark body::after { animation: none; opacity: 0.8; }
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+/* Right-to-left marquee — track holds the list twice, so -50% loops seamlessly */
+@keyframes marquee-rtl {
+  from { transform: translateX(0);     }
+  to   { transform: translateX(-50%);  }
+}
+
+/* Skeleton shimmer — a soft highlight sweeping right→left, theme-aware */
+.skeleton-shimmer {
+  background-color: rgba(9, 9, 11, 0.07);
+  background-image: linear-gradient(90deg, transparent 0%, rgba(9,9,11,0.05) 50%, transparent 100%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  /* `reverse` sweeps the highlight right → left */
+  animation: shimmer 1.5s ease-in-out infinite reverse;
+}
+.dark .skeleton-shimmer {
+  background-color: rgba(255, 255, 255, 0.08);
+  background-image: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.10) 50%, transparent 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer { animation: none; }
+}
+
+/* Shine — a glossy light streak that periodically sweeps across an element.
+   Add `shine` to any element (it clips to the element's shape). */
+.shine { position: relative; overflow: hidden; }
+.shine::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 55%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
+  transform: translateX(-160%) skewX(-20deg);
+  animation: shine-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes shine-sweep {
+  0%      { transform: translateX(-160%) skewX(-20deg); }
+  55%, 100% { transform: translateX(260%) skewX(-20deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shine::after { animation: none; }
+}
+
+/* Button shine — a light streak that sweeps once on hover. Applied to EVERY button
+   app-wide (plus any element with `.btn-shine`, e.g. link-styled buttons). Opt out
+   with `.no-shine` on buttons whose children must overflow (e.g. a corner badge).
+   overflow clips the streak to the rounded shape but never the focus ring (a box-shadow). */
+.btn-shine,
+button:not(.no-shine) { position: relative; overflow: hidden; }
+.btn-shine::after,
+button:not(.no-shine)::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0; width: 50%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  transform: translateX(-160%) skewX(-20deg);
+  pointer-events: none;
+}
+.btn-shine:hover::after,
+button:not(.no-shine):hover::after { animation: shine-sweep-once 0.7s ease-out; }
+.no-shine::after { content: none; }
+@keyframes shine-sweep-once {
+  from { transform: translateX(-160%) skewX(-20deg); }
+  to   { transform: translateX(260%) skewX(-20deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-shine:hover::after,
+  button:not(.no-shine):hover::after { animation: none; }
+}
+
+.animate-fade-in    { animation: fade-in    0.25s ease both; }
+.animate-slide-down { animation: slide-down 0.2s  ease both; }
+.animate-scale-in   { animation: scale-in   0.2s  ease both; }
+.animate-marquee    { animation: marquee-rtl 40s linear infinite; }
+.animate-marquee:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
+}
