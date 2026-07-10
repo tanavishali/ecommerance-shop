@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import {
   Eye, EyeOff, Mail, Lock, Store, ArrowRight,
-  ShoppingBag, Shield, Zap, ChevronDown, ChevronUp,
+  ShoppingBag, Shield, Zap,
 } from "lucide-react";
 import { loginSchema, type LoginFormValues } from "@/lib/validations";
 import { useLoginMutation } from "@/services/authService";
@@ -36,7 +36,6 @@ const STATS = [
 
 export function LoginSection() {
   const [showPassword, setShowPassword] = useState(false);
-  const [showDemo,     setShowDemo]     = useState(false);
   const [apiError,     setApiError]     = useState<string | null>(null);
 
   const router   = useRouter();
@@ -150,40 +149,6 @@ export function LoginSection() {
           <Link href="/">
             <Button variant="secondary" size="lg" fullWidth>Continue as guest</Button>
           </Link>
-
-          {/* Demo credentials — collapsible */}
-          <div className="mt-5 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
-            <button
-              type="button"
-              onClick={() => setShowDemo(!showDemo)}
-              className="w-full flex items-center justify-between px-4 py-3 text-left bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-            >
-              <span className="text-xs font-semibold text-zinc-600 dark:text-zinc-400 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
-                Demo credentials
-              </span>
-              {showDemo
-                ? <ChevronUp className="h-3.5 w-3.5 text-zinc-400" />
-                : <ChevronDown className="h-3.5 w-3.5 text-zinc-400" />}
-            </button>
-            {showDemo && (
-              <motion.div
-                initial={{ height: 0 }}
-                animate={{ height: "auto" }}
-                transition={{ duration: 0.2 }}
-                className="px-4 py-3 space-y-1.5 bg-zinc-50 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800"
-              >
-                <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                  Customer:{" "}
-                  <span className="font-mono text-zinc-700 dark:text-zinc-300">customer@shop.com / customer123</span>
-                </p>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                  Admin:{" "}
-                  <span className="font-mono text-zinc-700 dark:text-zinc-300">admin@shop.com / admin123</span>
-                </p>
-              </motion.div>
-            )}
-          </div>
 
           <p className="mt-6 text-center text-xs text-zinc-400 dark:text-zinc-500">
             By signing in you agree to our{" "}
