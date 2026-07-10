@@ -7,12 +7,23 @@ import { AppModule } from './app.module';
 function configure(app: INestApplication) {
   app.setGlobalPrefix('api');
 
+  // Vercel gives every branch/PR/production deploy its own subdomain (shophub-<hash>.vercel.app),
+  // so a fixed allowlist alone would break previews — allow any subdomain under this project too.
+  const VERCEL_PREVIEW_ORIGIN = /^https:\/\/shophub-[a-z0-9-]+\.vercel\.app$/;
+  const allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    process.env.FRONTEND_URL,
+  ].filter(Boolean);
+
   app.enableCors({
-    origin: [
-      'http://localhost:3000',
-      'http://localhost:3001',
-      process.env.FRONTEND_URL,
-    ].filter(Boolean),
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin) || VERCEL_PREVIEW_ORIGIN.test(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`Not allowed by CORS: ${origin}`));
+      }
+    },
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
