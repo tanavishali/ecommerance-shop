@@ -13,6 +13,7 @@ function configure(app: INestApplication) {
   const allowedOrigins = [
     'http://localhost:3000',
     'http://localhost:3001',
+    'http://localhost:5173', // Techriwaayat marketing site (Vite dev server)
     process.env.FRONTEND_URL,
   ].filter(Boolean);
 

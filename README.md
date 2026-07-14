@@ -57,6 +57,10 @@ PORT=3001
 STRIPE_SECRET_KEY=sk_test_xxx        # your Stripe test secret key
 ```
 
+
+
+
+
 On first boot the API **seeds** demo data automatically:
 
 | Account | Email | Password |
