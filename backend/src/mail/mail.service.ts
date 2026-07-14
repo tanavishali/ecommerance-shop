@@ -10,9 +10,13 @@ export class MailService {
     const { EMAIL_USER, EMAIL_PASS } = process.env;
     if (EMAIL_USER && EMAIL_PASS) {
       this.transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         auth: { user: EMAIL_USER, pass: EMAIL_PASS },
-      });
+        // Render's network lacks outbound IPv6 — force IPv4 or connects hang with ENETUNREACH.
+        family: 4,
+      } as any);
     } else {
       this.logger.warn('EMAIL_USER / EMAIL_PASS not set — email notifications are disabled.');
     }
@@ -29,7 +33,8 @@ export class MailService {
         html,
       });
     } catch (err) {
-      this.logger.error(`Failed to send notification email: ${err.message}`);
+      const message = err instanceof Error ? err.message : String(err);
+      this.logger.error(`Failed to send notification email: ${message}`);
     }
   }
 }
