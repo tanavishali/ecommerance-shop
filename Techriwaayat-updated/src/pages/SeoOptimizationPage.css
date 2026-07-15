@@ -1,0 +1,144 @@
+/* SEO Optimization Page Specific CSS */
+
+/* The base utility and structure classes (.text-white, .service-hero, .offer-grid)
+   are inherited from ServicesShared.css */
+
+/* SEO Mockup Animation & Styling */
+.seo-mockup {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eaeaea;
+  overflow: hidden;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.seo-mockup-header {
+  height: 40px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 8px;
+}
+
+.seo-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.seo-dot.red { background: #ff5f56; }
+.seo-dot.yellow { background: #ffbd2e; }
+.seo-dot.green { background: #27c93f; }
+
+.seo-url {
+  margin-left: 16px;
+  background: #ffffff;
+  padding: 4px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #666;
+  border: 1px solid #eaeaea;
+  font-family: monospace;
+}
+
+.seo-chart-container {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.seo-line-chart {
+  flex: 1;
+  border-left: 2px solid #eaeaea;
+  border-bottom: 2px solid #eaeaea;
+  position: relative;
+  overflow: hidden;
+}
+
+.seo-line-chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.seo-area {
+  fill: rgba(0, 217, 126, 0.1);
+  animation: revealArea 3s ease-out forwards;
+}
+
+.seo-line {
+  fill: none;
+  stroke: #00d97e;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawLine 3s ease-out forwards;
+}
+
+.seo-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.seo-stat-box {
+  flex: 1;
+  background: #f8f9fa;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: #00d97e;
+  margin-top: 4px;
+}
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes revealArea {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Tool Specific Colors */
+.google { color: #F4B400; }
+.ahrefs { color: #F89000; }
+.semrush { color: #FF642D; }
+.moz { color: #35BBD2; }
+.console { color: #4285F4; }
+.screamingfrog { color: #2D3A3A; }
+
+@media (max-width: 768px) {
+  .seo-mockup {
+    height: 300px;
+  }
+  .seo-stats {
+    flex-direction: column;
+  }
+  .seo-stat-box {
+    padding: 8px;
+  }
+}

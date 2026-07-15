@@ -1,0 +1,88 @@
+/* Mobile App Development Page CSS */
+
+/* Utility Classes */
+.text-white, .section-header .text-white { color: #fff !important; }
+.text-light-gray { color: #ccc !important; }
+.text-center { text-align: center; }
+.text-center h2 { text-align: center; justify-content: center; }
+.text-center p { text-align: center; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+.ms-2 { margin-left: 0.5rem; }
+.bg-dark { background-color: #1a1a1a; position: relative; overflow: hidden; }
+.section-padding { padding: 80px 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-header { margin-bottom: 48px; }
+.section-subtitle { font-size: 16px; color: #666; max-width: 600px; margin: 16px auto 0; }
+
+/* The base styles like .service-page, .bg-dark, .service-cta-box, etc., 
+   are mostly shared or reused from the WebDevelopmentPage logic, but we will duplicate 
+   the necessary ones here to ensure independence and encapsulation if needed. */
+
+/* Mobile Mockup Window (Specific to this page) */
+.mobile-mockup-window {
+  background: #1e1e1e;
+  border-radius: 36px;
+  border: 8px solid #333;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  font-family: monospace;
+  height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.mockup-header {
+  background: #111;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.mockup-notch {
+  width: 120px;
+  height: 25px;
+  background: #333;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  margin-top: -15px;
+}
+
+.mockup-body {
+  padding: 32px 24px;
+  color: #d4d4d4;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* Technology Specific Colors */
+.flutter { color: #02569B; }
+.swift { color: #F05138; }
+.kotlin { color: #7F52FF; }
+.ios { color: #999999; }
+.android { color: #3DDC84; }
+.firebase { color: #FFCA28; }
+
+/* The rest of the classes like .service-hero, .offer-card, .process-step-card, 
+   .tech-grid, .faq-item, .service-cta-box are already defined globally or in 
+   WebDevelopmentPage.css. If we need to, we can define them here to be safe,
+   but since they share the same structure, they will inherit properly. 
+   We will define the specific responsive tweaks if needed. */
+
+@media (max-width: 768px) {
+  .mobile-mockup-window {
+    height: 300px;
+    border-radius: 24px;
+    border-width: 6px;
+  }
+  .mockup-body {
+    font-size: 12px;
+    padding: 20px 16px;
+  }
+}

@@ -1,0 +1,160 @@
+/* WordPress Development Page Specific CSS */
+
+/* The base utility and structure classes (.text-white, .service-hero, .offer-grid)
+   are inherited from ServicesShared.css */
+
+/* WordPress Dashboard Mockup Animation & Styling */
+.wp-mockup {
+  background: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid #dcdcde;
+  overflow: hidden;
+  height: 400px;
+  display: flex;
+}
+
+.wp-sidebar {
+  width: 160px;
+  background: #1d2327;
+  color: #a7aaad;
+  display: flex;
+  flex-direction: column;
+}
+
+.wp-logo-sm {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  color: #fff;
+  font-size: 24px;
+  background: #1d2327;
+}
+
+.wp-menu-item {
+  padding: 10px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wp-menu-item:hover {
+  color: #fff;
+}
+
+.wp-menu-item.active {
+  background: #2271b1;
+  color: #fff;
+  font-weight: 600;
+}
+
+.wp-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.wp-topbar {
+  height: 32px;
+  background: #1d2327;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 13px;
+}
+
+.wp-site-name {
+  font-weight: 500;
+}
+
+.wp-user {
+  color: #a7aaad;
+}
+
+.wp-editor-area {
+  padding: 32px;
+  background: #f0f0f1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wp-page-title {
+  font-size: 24px;
+  color: #1d2327;
+  margin: 0;
+  font-weight: 400;
+}
+
+.wp-gutenberg-block {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.block-toolbar {
+  height: 24px;
+  background: #f6f7f7;
+  border-bottom: 1px solid #dcdcde;
+  margin: -16px -16px 16px -16px;
+  border-radius: 4px 4px 0 0;
+}
+
+.text-placeholder {
+  height: 12px;
+  background: #e6e6e6;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.text-placeholder.short {
+  width: 70%;
+}
+
+.image-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f6f7f7;
+  height: 100px;
+  color: #00d97e;
+  font-size: 32px;
+}
+
+.spinning {
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Technology Specific Colors */
+.wp-blue { color: #21759b; }
+.php-purple { color: #8892BF; }
+.react-blue { color: #61DAFB; }
+.mysql-blue { color: #4479A1; }
+.html-orange { color: #E34F26; }
+
+@media (max-width: 768px) {
+  .wp-mockup {
+    height: 300px;
+  }
+  .wp-sidebar {
+    width: 60px;
+  }
+  .wp-menu-item {
+    font-size: 0;
+    padding: 16px;
+  }
+  .wp-editor-area {
+    padding: 16px;
+  }
+}

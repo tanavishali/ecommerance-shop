@@ -1,0 +1,482 @@
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  gap: 40px;
+}
+
+/* Logo Styling */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #00d97e 0%, #00a85f 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.navbar-logo:hover {
+  opacity: 0.8;
+}
+
+/* Navigation Menu - Centered */
+.nav-menu {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #1a1a1a;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-link .icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.nav-link .nav-icon {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00d97e;
+}
+
+.nav-link:hover .nav-icon {
+  transform: scale(1.2);
+}
+
+/* Dropdown Menu */
+.dropdown-item {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px !important;
+}
+
+.dropdown-toggle .dropdown-arrow {
+  font-size: 11px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-item.active .dropdown-toggle .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 8px 0;
+  margin: 8px 0 0 0;
+  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dropdown-icon {
+  font-size: 12px;
+  color: #00d97e;
+  width: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-link:hover {
+  background-color: #f5f5f5;
+  color: #00d97e;
+  padding-left: 28px;
+}
+
+/* Schedule Call Buttons */
+.schedule-btn,
+.schedule-btn-mobile {
+  padding: 10px 24px;
+  background-color: #00d97e;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 217, 126, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.schedule-btn .btn-icon,
+.schedule-btn-mobile .btn-icon {
+  font-size: 12px;
+  animation: pulse 2s infinite;
+}
+
+.schedule-btn:hover,
+.schedule-btn-mobile:hover {
+  background-color: #00b366;
+  box-shadow: 0 4px 12px rgba(0, 217, 126, 0.3);
+  transform: translateY(-2px);
+}
+
+.schedule-btn:active,
+.schedule-btn-mobile:active {
+  transform: translateY(0);
+}
+
+.desktop-schedule {
+  display: flex;
+}
+
+.mobile-schedule {
+  display: none;
+}
+
+/* Hamburger Menu with X Icon */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  color: #1a1a1a;
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+  opacity: 0.8;
+}
+
+.menu-toggle span {
+  width: 22px;
+  height: 2px;
+  background-color: #1a1a1a;
+  border-radius: 3px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  transform-origin: center;
+}
+
+.menu-toggle span:nth-child(2) {
+  width: 14px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  width: 22px;
+  background-color: #1a1a1a;
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  width: 22px;
+  background-color: #1a1a1a;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .navbar-container {
+    gap: 20px;
+  }
+
+  .nav-menu {
+    gap: 4px;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .schedule-btn {
+    padding: 9px 18px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 16px;
+    height: 60px;
+    gap: 16px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    order: 3;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    left: auto;
+    width: 280px;
+    max-width: 80vw;
+    height: calc(100vh - 60px);
+    background-color: #ffffff;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.1);
+    max-height: none;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+    justify-content: flex-start;
+    border-bottom: none;
+    border-left: 1px solid #f0f0f0;
+    z-index: 999;
+  }
+
+  .nav-menu.active {
+    right: 0;
+    max-height: none;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    padding: 14px 24px;
+    border-bottom: 1px solid #f0f0f0;
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 15px;
+  }
+
+  /* Dropdown on Mobile */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background-color: #f5f5f5;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: all 0.3s ease;
+  }
+
+  .dropdown-menu.active {
+    max-height: 300px;
+    padding: 8px 0;
+  }
+
+  .dropdown-link {
+    padding-left: 40px;
+    font-size: 15px;
+  }
+
+  .dropdown-link:hover {
+    padding-left: 48px;
+  }
+
+  .navbar-logo {
+    font-size: 18px;
+    flex: 1;
+    order: 1;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Mobile Schedule Button */
+  .mobile-schedule {
+    display: flex;
+    width: 100%;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: none;
+    padding: 24px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+
+  .schedule-btn-mobile {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin: 0;
+  }
+
+  /* Hide Desktop Button */
+  .desktop-schedule {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 12px;
+    height: 55px;
+  }
+
+  .navbar-logo {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .nav-link {
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+
+  .schedule-btn-mobile {
+    padding: 12px 20px;
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .schedule-btn-mobile .btn-icon {
+    font-size: 11px;
+  }
+
+  .mobile-schedule {
+    padding: 16px;
+  }
+
+  .dropdown-link {
+    font-size: 15px;
+    padding: 10px 20px;
+    padding-left: 40px;
+  }
+}

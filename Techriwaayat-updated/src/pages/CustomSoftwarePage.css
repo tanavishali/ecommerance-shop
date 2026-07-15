@@ -1,0 +1,148 @@
+/* Custom Software Page Specific CSS */
+
+/* AI/Software Mockup Dashboard Animation & Styling */
+.software-mockup {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eaeaea;
+  overflow: hidden;
+  height: 400px;
+  display: flex;
+}
+
+.sm-sidebar {
+  width: 80px;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  gap: 20px;
+}
+
+.sm-logo {
+  width: 32px;
+  height: 32px;
+  background: #00d97e;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.sm-nav-item {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.sm-nav-item.active {
+  background: rgba(0, 217, 126, 0.3);
+  border-left: 2px solid #00d97e;
+}
+
+.sm-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+}
+
+.sm-header {
+  height: 60px;
+  background: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.sm-search {
+  width: 150px;
+  height: 20px;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.sm-profile {
+  width: 32px;
+  height: 32px;
+  background: #e0e0e0;
+  border-radius: 50%;
+}
+
+.sm-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+.sm-cards {
+  display: flex;
+  gap: 16px;
+}
+
+.sm-card {
+  flex: 1;
+  height: 80px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.sm-chart {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  padding: 16px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.sm-bar {
+  flex: 1;
+  background: #00d97e;
+  border-radius: 4px 4px 0 0;
+  opacity: 0.8;
+  animation: barGrow 2s ease-out infinite alternate;
+}
+
+.sm-bar:nth-child(2) { animation-delay: 0.2s; }
+.sm-bar:nth-child(3) { animation-delay: 0.4s; }
+.sm-bar:nth-child(4) { animation-delay: 0.6s; }
+.sm-bar:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes barGrow {
+  0% { transform: scaleY(0.8); transform-origin: bottom; }
+  100% { transform: scaleY(1.1); transform-origin: bottom; }
+}
+
+/* Technology Specific Colors */
+.python { color: #3776AB; }
+.java { color: #6DB33F; }
+.csharp { color: #239120; }
+.docker { color: #2496ED; }
+.aws { color: #232F3E; }
+.react { color: #61DAFB; }
+
+@media (max-width: 768px) {
+  .software-mockup {
+    height: 300px;
+  }
+  .sm-sidebar {
+    width: 60px;
+  }
+  .sm-cards {
+    flex-direction: column;
+  }
+  .sm-card {
+    height: 40px;
+  }
+}
