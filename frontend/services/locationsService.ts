@@ -40,8 +40,13 @@ export const locationsService = baseApi.injectEndpoints({
           ? [...result.map(({ _id }) => ({ type: "Location" as const, id: _id })), { type: "Location", id: "LIST" }]
           : [{ type: "Location", id: "LIST" }],
     }),
+
+    deleteLocation: build.mutation<void, string>({
+      query: (id) => ({ url: `/locations/${id}`, method: "DELETE" }),
+      invalidatesTags: (_r, _e, id) => [{ type: "Location", id }, { type: "Location", id: "LIST" }],
+    }),
   }),
   overrideExisting: false,
 });
 
-export const { useReportLocationMutation, useGetLocationsQuery } = locationsService;
+export const { useReportLocationMutation, useGetLocationsQuery, useDeleteLocationMutation } = locationsService;

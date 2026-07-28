@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Location, LocationDocument } from './schemas/location.schema';
@@ -83,5 +83,10 @@ export class LocationsService {
       };
       return result;
     });
+  }
+
+  async remove(id: string): Promise<void> {
+    const result = await this.locationModel.findByIdAndDelete(id).exec();
+    if (!result) throw new NotFoundException('Location not found');
   }
 }

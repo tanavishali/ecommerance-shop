@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Body, Request, UseGuards } from '@nestjs/common';
+import { Controller, Post, Get, Delete, Body, Param, Request, UseGuards, HttpCode, HttpStatus } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { LocationsService, VisitorLocationResponse } from './locations.service';
 import { CreateLocationDto } from './dto/create-location.dto';
@@ -29,5 +29,15 @@ export class LocationsController {
   @ApiOperation({ summary: 'List the current location of every tracked visitor (admin only)' })
   findAll(): Promise<VisitorLocationResponse[]> {
     return this.locationsService.findAll();
+  }
+
+  @Delete(':id')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('admin')
+  @ApiBearerAuth()
+  @HttpCode(HttpStatus.NO_CONTENT)
+  @ApiOperation({ summary: 'Delete a tracked location record (admin only)' })
+  remove(@Param('id') id: string): Promise<void> {
+    return this.locationsService.remove(id);
   }
 }
