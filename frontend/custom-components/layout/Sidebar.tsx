@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard, Package, ShoppingBag, Store,
-  LogOut, Menu, X, ChevronRight, Mail, Tag,
+  LogOut, Menu, X, ChevronRight, Mail, Tag, MapPin,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Avatar } from "@/custom-components/ui/Avatar";
@@ -22,6 +22,7 @@ const NAV_ITEMS = [
   { label: "Orders",    href: "/admin/orders",    icon: ShoppingBag },
   { label: "Sales",     href: "/admin/sales",     icon: Tag },
   { label: "Messages",  href: "/admin/messages",  icon: Mail },
+  { label: "Locations", href: "/admin/locations", icon: MapPin },
 ];
 
 interface SidebarProps { className?: string }

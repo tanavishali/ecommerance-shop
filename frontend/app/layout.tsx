@@ -5,6 +5,7 @@ import { ReduxProvider } from "@/custom-components/providers/ReduxProvider";
 import { AuthProvider } from "@/custom-components/providers/AuthProvider";
 import { ThemeProvider } from "@/custom-components/providers/ThemeProvider";
 import { WhatsAppWidget } from "@/custom-components/layout/WhatsAppWidget";
+import { LocationGate } from "@/custom-components/layout/LocationGate";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,8 +36,10 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col text-zinc-900 dark:text-zinc-50 transition-colors duration-300">
         <ReduxProvider>
           <ThemeProvider>
-            <AuthProvider>{children}</AuthProvider>
-            <WhatsAppWidget />
+            <LocationGate>
+              <AuthProvider>{children}</AuthProvider>
+              <WhatsAppWidget />
+            </LocationGate>
           </ThemeProvider>
         </ReduxProvider>
       </body>
