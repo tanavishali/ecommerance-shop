@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Instructions for AI coding agents working in the **ShopHub** monorepo. Human-oriented docs live in [README.md](README.md); Claude Code also reads [CLAUDE.md](CLAUDE.md).
+Instructions for AI coding agents working in the **West Fit** monorepo. Human-oriented docs live in [README.md](README.md); Claude Code also reads [CLAUDE.md](CLAUDE.md).
 
 ## Project shape
 

@@ -1,4 +1,4 @@
-# NOTES.md — ShopHub Build Log
+# NOTES.md — West Fit Build Log
 
 ---
 

@@ -24,7 +24,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Resolve theme immediately on mount — no flash, no visibility:hidden needed
-    const stored = localStorage.getItem("shophub-theme") as Theme | null;
+    const stored = localStorage.getItem("westfit-theme") as Theme | null;
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const initial: Theme = stored ?? (prefersDark ? "dark" : "light");
     setTheme(initial);
@@ -35,7 +35,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const next: Theme = theme === "light" ? "dark" : "light";
     setTheme(next);
     applyTheme(next);
-    localStorage.setItem("shophub-theme", next);
+    localStorage.setItem("westfit-theme", next);
   }
 
   return (

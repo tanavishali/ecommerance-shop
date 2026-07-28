@@ -69,7 +69,7 @@ export function SignupSection() {
             <div className="h-9 w-9 rounded-xl bg-violet-600 flex items-center justify-center">
               <Store className="h-4.5 w-4.5 text-white" />
             </div>
-            <span className="font-bold text-zinc-900 dark:text-zinc-50 text-lg">ShopHub</span>
+            <span className="font-bold text-zinc-900 dark:text-zinc-50 text-lg">West Fit</span>
           </Link>
 
           <div className="mb-8">

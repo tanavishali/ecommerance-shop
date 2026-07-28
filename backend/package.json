@@ -1,7 +1,7 @@
 {
-  "name": "shophub-backend",
+  "name": "westfit-backend",
   "version": "1.0.0",
-  "description": "ShopHub NestJS API",
+  "description": "West Fit NestJS API",
   "scripts": {
     "build": "nest build",
     "start": "node dist/main",

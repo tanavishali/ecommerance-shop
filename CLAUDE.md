@@ -1,8 +1,8 @@
-# CLAUDE.md — ShopHub Project Brain
+# CLAUDE.md — West Fit Project Brain
 
 ## What this is
 
-**ShopHub** — full-stack e-commerce monorepo.
+**West Fit** — full-stack e-commerce monorepo.
 
 | App | Tech | Port |
 |-----|------|------|

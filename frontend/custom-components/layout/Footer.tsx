@@ -36,7 +36,7 @@ export function Footer() {
               <div className="h-8 w-8 rounded-xl bg-violet-600 flex items-center justify-center shrink-0">
                 <Store className="h-4 w-4 text-white" />
               </div>
-              <span className="font-bold text-zinc-900 dark:text-zinc-50 text-lg">ShopHub</span>
+              <span className="font-bold text-zinc-900 dark:text-zinc-50 text-lg">West Fit</span>
             </Link>
             <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs">
               A modern shopping experience. Quality products, fast delivery, and easy returns.
@@ -82,7 +82,7 @@ export function Footer() {
         <Divider />
 
         <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-400 dark:text-zinc-500">
-          <p>© {new Date().getFullYear()} ShopHub. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} West Fit. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <a href="#" className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">Terms of Service</a>

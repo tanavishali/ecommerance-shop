@@ -5,7 +5,7 @@ import { CartDrawer } from "@/custom-components/cart/CartDrawer";
 import { PageTransition } from "@/custom-components/providers/PageTransition";
 
 export const metadata: Metadata = {
-  title: { default: "ShopHub", template: "%s | ShopHub" },
+  title: { default: "West Fit", template: "%s | West Fit" },
   description: "Discover products you love",
 };
 

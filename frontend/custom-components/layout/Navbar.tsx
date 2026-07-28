@@ -95,7 +95,7 @@ export function Navbar() {
             <div className="h-8 w-8 rounded-xl bg-violet-600 flex items-center justify-center transition-transform group-hover:scale-105">
               <Store className="h-4 w-4 text-white" />
             </div>
-            <span className="font-bold text-zinc-900 dark:text-zinc-50 text-lg hidden sm:block">ShopHub</span>
+            <span className="font-bold text-zinc-900 dark:text-zinc-50 text-lg hidden sm:block">West Fit</span>
           </Link>
 
           {/* Desktop nav links */}

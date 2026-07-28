@@ -10,7 +10,7 @@ import { Alert } from "@/custom-components/ui/Alert";
 import { useSubmitContactMutation } from "@/services/contactService";
 
 const DETAILS = [
-  { icon: Mail, label: "Email us", value: "support@shophub.com", sub: "We reply within a few hours" },
+  { icon: Mail, label: "Email us", value: "support@westfit.com", sub: "We reply within a few hours" },
   { icon: Phone, label: "Call us", value: "+1 (800) 555-0142", sub: "Mon–Fri, 9am–6pm EST" },
   { icon: MapPin, label: "Visit us", value: "123 Market Street, San Francisco, CA", sub: "By appointment only" },
   { icon: Clock, label: "Support hours", value: "Mon–Fri · 9am–6pm EST", sub: "Weekends: email only" },

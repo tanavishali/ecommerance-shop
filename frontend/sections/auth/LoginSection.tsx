@@ -79,14 +79,14 @@ export function LoginSection() {
             <div className="h-9 w-9 rounded-xl bg-violet-600 flex items-center justify-center">
               <Store className="h-4.5 w-4.5 text-white" />
             </div>
-            <span className="font-bold text-zinc-900 dark:text-zinc-50 text-lg">ShopHub</span>
+            <span className="font-bold text-zinc-900 dark:text-zinc-50 text-lg">West Fit</span>
           </Link>
 
           {/* Heading */}
           <div className="mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-2">Sign in</h2>
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              New to ShopHub?{" "}
+              New to West Fit?{" "}
               <Link href="/auth/signup" className="text-violet-600 dark:text-violet-400 hover:underline font-semibold">
                 Create a free account
               </Link>
@@ -140,7 +140,7 @@ export function LoginSection() {
               rightIcon={<ArrowRight className="h-4 w-4" />}
               className="mt-2"
             >
-              Sign in to ShopHub
+              Sign in to West Fit
             </Button>
           </form>
 

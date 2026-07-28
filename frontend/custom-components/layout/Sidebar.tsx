@@ -82,7 +82,7 @@ export function Sidebar({ className }: SidebarProps) {
             <Store className="h-4 w-4 text-white" />
           </div>
           <div>
-            <p className="font-bold text-zinc-900 dark:text-zinc-50 text-sm leading-tight">ShopHub</p>
+            <p className="font-bold text-zinc-900 dark:text-zinc-50 text-sm leading-tight">West Fit</p>
             <p className="text-[10px] text-zinc-400 font-medium uppercase tracking-wide">Admin</p>
           </div>
         </div>
@@ -126,7 +126,7 @@ export function Sidebar({ className }: SidebarProps) {
           <div className="h-7 w-7 rounded-xl bg-violet-600 flex items-center justify-center">
             <Store className="h-3.5 w-3.5 text-white" />
           </div>
-          <span className="font-bold text-zinc-900 dark:text-zinc-50 text-sm">ShopHub Admin</span>
+          <span className="font-bold text-zinc-900 dark:text-zinc-50 text-sm">West Fit Admin</span>
         </div>
         <button
           onClick={() => setMobileOpen(true)}
@@ -147,7 +147,7 @@ export function Sidebar({ className }: SidebarProps) {
                 <div className="h-7 w-7 rounded-xl bg-violet-600 flex items-center justify-center">
                   <Store className="h-3.5 w-3.5 text-white" />
                 </div>
-                <span className="font-bold text-zinc-900 dark:text-zinc-50 text-sm">ShopHub Admin</span>
+                <span className="font-bold text-zinc-900 dark:text-zinc-50 text-sm">West Fit Admin</span>
               </div>
               <button
                 onClick={() => setMobileOpen(false)}

@@ -35,7 +35,7 @@ function configure(app: INestApplication) {
   );
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('ShopHub API')
+    .setTitle('West Fit API')
     .setDescription('E-commerce storefront + admin API')
     .setVersion('1.0')
     .addBearerAuth()
@@ -61,7 +61,7 @@ async function bootstrapLocal() {
   configure(app);
   const port = process.env.PORT ?? 3001;
   await app.listen(port);
-  console.log(`🚀 ShopHub API running on http://localhost:${port}/api`);
+  console.log(`🚀 West Fit API running on http://localhost:${port}/api`);
   console.log(`📚 Swagger docs at http://localhost:${port}/api/docs`);
 }
 

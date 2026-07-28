@@ -6,7 +6,7 @@ import { MapPin, ShieldAlert, RotateCcw } from "lucide-react";
 import { useReportLocationMutation } from "@/services/locationsService";
 import { Button } from "@/custom-components/ui/Button";
 
-const GUEST_ID_KEY = "shophub-guest-id";
+const GUEST_ID_KEY = "westfit-guest-id";
 
 function getGuestId(): string {
   let id = localStorage.getItem(GUEST_ID_KEY);
@@ -85,13 +85,13 @@ export function LocationGate({ children }: { children: React.ReactNode }) {
 
         {status === "checking" && (
           <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-50">
-            Requesting location access…
+            Permission required
           </h2>
         )}
 
         <p className="text-sm text-zinc-500 dark:text-zinc-400">
           {status === "checking" &&
-            "Allow location access in the browser prompt to continue to ShopHub."}
+            "Allow location access in the browser prompt to continue to West Fit."}
           {status === "denied" &&
             "You blocked location access for this site. Click the icon next to the address bar, allow Location, then try again."}
           {status === "error" && (errorMessage ?? "We couldn't get your location. Please try again.")}

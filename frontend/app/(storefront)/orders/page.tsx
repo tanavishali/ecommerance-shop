@@ -3,7 +3,7 @@ import { ProtectedRoute } from "@/custom-components/auth/ProtectedRoute";
 import { OrderHistorySection } from "@/sections/storefront/OrderHistorySection";
 
 export const metadata: Metadata = {
-  title: "My Orders — ShopHub",
+  title: "My Orders — West Fit",
 };
 
 export default function OrdersPage() {

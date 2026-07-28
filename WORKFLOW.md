@@ -1,4 +1,4 @@
-# WORKFLOW.md — ShopHub Actual Build Journey
+# WORKFLOW.md — West Fit Actual Build Journey
 
 This file documents the **real sequence of how this project was built** — phase by phase, prompt by prompt, using Claude Code as the agentic tool. Each phase shows the instruction given, what the agent did, and how it was verified.
 

@@ -3,7 +3,7 @@ import { Sidebar } from "@/custom-components/layout/Sidebar";
 import { AdminGuard } from "@/custom-components/auth/AdminGuard";
 
 export const metadata: Metadata = {
-  title: { default: "Admin | ShopHub", template: "%s | Admin — ShopHub" },
+  title: { default: "Admin | West Fit", template: "%s | Admin — West Fit" },
 };
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

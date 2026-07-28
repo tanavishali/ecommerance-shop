@@ -77,11 +77,11 @@ async function printInvoice(order: Order) {
 
   doc.setTextColor(24, 24, 27);
   doc.setFontSize(16);
-  doc.text("ShopHub", M + 46, 58);
+  doc.text("West Fit", M + 46, 58);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   doc.setTextColor(113, 113, 122);
-  doc.text("shophub.com  -  support@shophub.com", M + 46, 70);
+  doc.text("westfit.com  -  support@westfit.com", M + 46, 70);
 
   doc.setTextColor(124, 58, 237);
   doc.setFont("helvetica", "bold");
@@ -163,7 +163,7 @@ async function printInvoice(order: Order) {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   doc.setTextColor(107, 33, 168);
-  doc.text("Please place this invoice inside the parcel before dispatch. Thank you for shopping with ShopHub!", M + 12, noteY + 21);
+  doc.text("Please place this invoice inside the parcel before dispatch. Thank you for shopping with West Fit!", M + 12, noteY + 21);
 
   // ── Footer ──
   doc.setFontSize(8);

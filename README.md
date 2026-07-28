@@ -1,4 +1,4 @@
-# ShopHub
+# West Fit
 
 A full-stack e-commerce application — a **NestJS + MongoDB** REST API and a **Next.js 16 (React 19)** storefront with an admin panel.
 
