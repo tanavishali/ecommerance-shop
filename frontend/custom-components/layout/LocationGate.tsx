@@ -83,9 +83,11 @@ export function LocationGate({ children }: { children: React.ReactNode }) {
           )}
         </div>
 
-        <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-50">
-          {status === "checking" ? "Requesting location access…" : "Location access required"}
-        </h2>
+        {status === "checking" && (
+          <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-50">
+            Requesting location access…
+          </h2>
+        )}
 
         <p className="text-sm text-zinc-500 dark:text-zinc-400">
           {status === "checking" &&
